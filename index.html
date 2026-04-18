@@ -2,91 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Book with Marianna (Modmop, Ottawa)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:#0f172a;
-      color:#e2e8f0;
+    :root {
+      --bg: #f5f1ea;
+      --card: #fffaf2;
+      --text: #1e1a16;
+      --muted: #5a514a;
+      --stroke: rgba(30, 26, 22, 0.12);
+      --shadow: 0 10px 30px rgba(30, 26, 22, 0.12);
+      --shadow2: 0 10px 40px rgba(30, 26, 22, 0.14);
+      --accent: #1e1a16;
     }
-    .wrap{
-      max-width:480px;
-      margin:0 auto;
-      padding:32px 18px 56px;
-      text-align:center;
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
     }
-    img.avatar{
-      width:96px;
-      height:96px;
-      border-radius:999px;
-      object-fit:cover;
-      border:2px solid rgba(226,232,240,0.25);
-      box-shadow:0 10px 30px rgba(0,0,0,0.35);
-      background:#1e293b;
-      display:block;
-      margin:0 auto 16px;
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 18px 56px;
     }
-    h1{
-      margin:0 0 8px 0;
-      font-size:22px;
-      letter-spacing:.2px;
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .subtitle{
-      margin:0 0 22px 0;
-      color:rgba(226,232,240,0.85);
-      font-size:14px;
-      line-height:1.45;
+
+    .inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
     }
-    .buttons{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:10px;
+
+    .hero {
+      padding: 40px 32px;
     }
-    a.btn{
-      display:block;
-      padding:13px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      color:#0f172a;
-      background:#e2e8f0;
-      font-weight:650;
-      box-shadow:0 10px 25px rgba(0,0,0,0.25);
-      transition:transform .08s ease, filter .08s ease;
+
+    .h-label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 14px;
     }
-    a.btn:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.03);
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      margin: 0 0 16px;
+      font-size: 40px;
+      line-height: 1.02;
     }
-    a.btn:active{
-      transform:translateY(0px);
+
+    .subtitle {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 60ch;
     }
-    footer{
-      margin-top:32px;
-      color:rgba(226,232,240,0.65);
-      font-size:12px;
-      line-height:1.6;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    a.btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 13px 16px;
+      border: 1px solid var(--stroke);
+      background: #fff;
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: transform 0.08s ease, filter 0.08s ease, box-shadow 0.08s ease;
+    }
+
+    a.btn:hover {
+      filter: brightness(0.98);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow2);
+    }
+
+    a.btn:active {
+      transform: translateY(0px);
+      filter: brightness(0.96);
+    }
+
+    a.btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(30, 26, 22, 0.25);
+    }
+
+    .tip {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      border-top: 1px dashed rgba(30, 26, 22, 0.18);
+      padding-top: 14px;
+    }
+
+    .profile {
+      border-left: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.25));
+      min-height: 100%;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 18px;
+      border: 1px dashed rgba(30, 26, 22, 0.22);
+      background:
+        linear-gradient(120deg, rgba(30, 26, 22, 0.05), rgba(30, 26, 22, 0.0)),
+        radial-gradient(1200px 800px at 0% 0%, rgba(163, 146, 122, 0.35), rgba(30, 26, 22, 0));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(30, 26, 22, 0.35);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .credits {
+      margin-top: auto;
+      font-size: 12px;
+      color: rgba(90, 81, 74, 0.72);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .inner {
+        grid-template-columns: 1fr;
+      }
+
+      .profile {
+        border-left: none;
+        border-top: 1px solid var(--stroke);
+      }
+
+      h1 {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Book with Marianna</h1>
-    <div class="subtitle">
-      Hairstylist at Modmop (ByWard Market, Ottawa)
-    </div>
+    <div class="card">
+      <div class="inner">
+        <section class="hero">
+          <p class="h-label">Marianna · Modmop</p>
+          <h1>Book with Marianna</h1>
+          <p class="subtitle">Quick access to book, browse my work, and leave a review.</p>
 
-    <div class="buttons">
-      <a class="btn" href="https://www.phorest.com/salon/modmophairdressing" target="_blank" rel="noopener">Book appointment</a>
-      <a class="btn" href="https://www.instagram.com/kin_marianna_hairstylist/" target="_blank" rel="noopener">View my work</a>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Modmop+Hairdressing+Ottawa+reviews" target="_blank" rel="noopener">Leave a review</a>
-    </div>
+          <div class="buttons">
+            <a class="btn primary" href="https://bookings.gettimely.com/modmop/book?location=33030" target="_blank" rel="noopener noreferrer">
+              Book appointment
+            </a>
+            <a class="btn" href="https://www.instagram.com/kin_marianna_hairstylist/" target="_blank" rel="noopener noreferrer">
+              View my work
+            </a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=modmop+ottawa" target="_blank" rel="noopener noreferrer">
+              Leave a review
+            </a>
+          </div>
 
-    <footer>
-      Quick tip: if you are a new client, book a consultation or send a message and Marianna will help you choose the right service.
-    </footer>
+          <div class="tip">
+            Quick tip: if you’re new and unsure what to book, choose “Book appointment” and then send me a DM on Instagram.
+          </div>
+        </section>
+
+        <aside class="profile">
+          <div class="portrait">ADD PHOTO</div>
+          <div class="credits">Modmop · ByWard Market · Ottawa</div>
+        </aside>
+      </div>
+    </div>
   </div>
 </body>
 </html>
