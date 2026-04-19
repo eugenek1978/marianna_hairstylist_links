@@ -3,213 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book with Marianna (Modmop, Ottawa)</title>
+  <title>Marianna Kovaliov | Hair Artist at Modmop</title>
+  <meta name="description" content="Book with Marianna Kovaliov at Modmop in Ottawa. Precision cuts, dimensional color, and a natural-conscious approach." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f5f1ea;
-      --card: #fffaf2;
-      --text: #1e1a16;
-      --muted: #5a514a;
-      --stroke: rgba(30, 26, 22, 0.12);
-      --shadow: 0 10px 30px rgba(30, 26, 22, 0.12);
-      --shadow2: 0 10px 40px rgba(30, 26, 22, 0.14);
-      --accent: #1e1a16;
+      --bg: #ecf4f9;
+      --paper: #f9fcff;
+      --ink: #22313a;
+      --muted: #556774;
+      --line: rgba(34, 49, 58, 0.14);
+      --blue-soft: #8eb2c8;
+      --blue-deep: #5c87a2;
+      --blue-cloud: rgba(142, 178, 200, 0.16);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 36px rgba(42, 67, 82, 0.15);
+      --shadow-soft: 0 10px 22px rgba(42, 67, 82, 0.1);
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(1000px 520px at 90% -10%, rgba(142, 178, 200, 0.28), rgba(142, 178, 200, 0)),
+        radial-gradient(900px 500px at -10% 25%, rgba(142, 178, 200, 0.2), rgba(142, 178, 200, 0)),
+        var(--bg);
       min-height: 100vh;
     }
 
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 44px 18px 56px;
+    .container {
+      width: min(1080px, 100% - 32px);
+      margin: 26px auto 42px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
+    .page {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
       overflow: hidden;
-    }
-
-    .inner {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: stretch;
+      background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(249, 252, 255, 0.98));
+      box-shadow: var(--shadow);
     }
 
     .hero {
-      padding: 40px 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 520px;
     }
 
-    .h-label {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .hero-copy {
+      padding: 48px 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
       margin: 0 0 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 700;
     }
 
     h1 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700;
-      margin: 0 0 16px;
-      font-size: 40px;
-      line-height: 1.02;
+      margin: 0 0 18px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(44px, 6vw, 64px);
+      line-height: 0.95;
+      max-width: 11ch;
     }
 
-    .subtitle {
-      margin: 0 0 22px;
+    .lead {
+      margin: 0 0 24px;
+      font-size: 15px;
+      line-height: 1.75;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 60ch;
+      max-width: 52ch;
     }
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
+    .cta-group {
+      display: grid;
       gap: 12px;
-      margin-top: 8px;
+      margin-bottom: 16px;
+      max-width: 440px;
     }
 
-    a.btn {
-      display: flex;
-      align-items: center;
+    .btn {
+      display: inline-flex;
       justify-content: center;
-      gap: 10px;
-      text-decoration: none;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 20px;
       border-radius: 999px;
-      padding: 13px 16px;
-      border: 1px solid var(--stroke);
-      background: #fff;
-      color: var(--text);
-      font-weight: 600;
-      box-shadow: var(--shadow);
-      transition: transform 0.08s ease, filter 0.08s ease, box-shadow 0.08s ease;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .1s ease, box-shadow .12s ease, filter .12s ease;
+      box-shadow: var(--shadow-soft);
     }
 
-    a.btn:hover {
-      filter: brightness(0.98);
+    .btn:hover {
       transform: translateY(-1px);
-      box-shadow: var(--shadow2);
+      filter: brightness(0.985);
+      box-shadow: 0 14px 28px rgba(42, 67, 82, 0.15);
     }
 
-    a.btn:active {
-      transform: translateY(0px);
-      filter: brightness(0.96);
-    }
-
-    a.btn.primary {
-      background: var(--accent);
+    .btn-primary {
       color: #fff;
-      border-color: var(--accent);
-      box-shadow: 0 12px 30px rgba(30, 26, 22, 0.25);
+      border-color: var(--blue-deep);
+      background: linear-gradient(160deg, #6f99b4, #5c87a2);
     }
 
-    .tip {
-      margin-top: 16px;
+    .btn-secondary {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .hint {
+      margin: 0;
+      border-top: 1px dashed var(--line);
+      padding-top: 14px;
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.5;
-      border-top: 1px dashed rgba(30, 26, 22, 0.18);
-      padding-top: 14px;
+      line-height: 1.55;
+      max-width: 54ch;
     }
 
-    .profile {
-      border-left: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.25));
-      min-height: 100%;
-      padding: 40px 32px;
+    .hero-art {
+      border-left: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(142, 178, 200, 0.2), rgba(142, 178, 200, 0.04)),
+        radial-gradient(80% 60% at 20% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+      padding: 30px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
       justify-content: center;
+      gap: 14px;
     }
 
-    .portrait {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 18px;
-      border: 1px dashed rgba(30, 26, 22, 0.22);
+    .profile-card {
+      border: 1px solid rgba(92, 135, 162, 0.35);
+      border-radius: var(--radius-lg);
       background:
-        linear-gradient(120deg, rgba(30, 26, 22, 0.05), rgba(30, 26, 22, 0.0)),
-        radial-gradient(1200px 800px at 0% 0%, rgba(163, 146, 122, 0.35), rgba(30, 26, 22, 0));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(30, 26, 22, 0.35);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-    }
-
-    .credits {
-      margin-top: auto;
-      font-size: 12px;
-      color: rgba(90, 81, 74, 0.72);
-      line-height: 1.5;
+        linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(232, 244, 251, 0.8));
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
       text-align: center;
     }
 
-    @media (max-width: 860px) {
-      .inner {
-        grid-template-columns: 1fr;
-      }
+    .monogram {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      border: 1px solid rgba(92, 135, 162, 0.45);
+      background: #fff;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 42px;
+      color: var(--blue-deep);
+      letter-spacing: 0.04em;
+    }
 
-      .profile {
-        border-left: none;
-        border-top: 1px solid var(--stroke);
-      }
+    .profile-card h2 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 34px;
+      line-height: 1;
+    }
 
-      h1 {
-        font-size: 34px;
-      }
+    .profile-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 28ch;
+    }
+
+    .location {
+      margin: 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .sections {
+      padding: 12px 34px 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 16px 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px;
+      line-height: 0.95;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(85, 103, 116, 0.95);
+    }
+
+    @media (max-width: 940px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-art { border-left: 0; border-top: 1px solid var(--line); }
+      .sections { grid-template-columns: 1fr; }
+      .profile-card { min-height: 280px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(1080px, 100% - 18px); }
+      .hero-copy,
+      .hero-art,
+      .sections { padding-left: 18px; padding-right: 18px; }
+      .hero-copy { padding-top: 34px; }
+      h1 { font-size: clamp(38px, 12vw, 52px); }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="inner">
-        <section class="hero">
-          <p class="h-label">Marianna · Modmop</p>
-          <h1>Book with Marianna</h1>
-          <p class="subtitle">Quick access to book, browse my work, and leave a review.</p>
+  <main class="container">
+    <section class="page" aria-label="Marianna hairstylist landing page">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Marianna Kovaliov · Modmop Hairdressing · Ottawa</p>
+          <h1>Soft color. Healthy hair. Confident you.</h1>
+          <p class="lead">Marianna specializes in precision cuts and dimensional color that look beautiful on day one and still feel effortless weeks later. Every service is tailored to your hair goals with a clean, natural-conscious salon approach.</p>
 
-          <div class="buttons">
-            <a class="btn primary" href="https://www.phorest.com/salon/modmophairdressing" target="_blank" rel="noopener noreferrer">
-              Book appointment
-            </a>
-            <a class="btn" href="https://www.instagram.com/kin_marianna_hairstylist/" target="_blank" rel="noopener noreferrer">
-              View my work
-            </a>
-            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=modmop+ottawa" target="_blank" rel="noopener noreferrer">
-              Leave a review
-            </a>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="https://www.phorest.com/salon/modmophairdressing" target="_blank" rel="noopener noreferrer">Book Appointment</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/kin_marianna_hairstylist/" target="_blank" rel="noopener noreferrer">View Marianna&apos;s Instagram</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=modmop+ottawa" target="_blank" rel="noopener noreferrer">Read or Leave a Google Review</a>
           </div>
 
-          <div class="tip">
-            Quick tip: if you’re new and unsure what to book, choose “Book appointment” and then send me a DM on Instagram.
-          </div>
-        </section>
+          <p class="hint">First visit? Book your service, then send a quick Instagram DM with your inspiration photos so Marianna can personalize your appointment.</p>
+        </div>
 
-        <aside class="profile">
-          <div class="portrait">ADD PHOTO</div>
-          <div class="credits">Modmop · ByWard Market · Ottawa</div>
+        <aside class="hero-art" aria-label="Stylist profile panel">
+          <div class="profile-card">
+            <div>
+              <div class="monogram" aria-hidden="true">MK</div>
+              <h2>Marianna</h2>
+              <p>Cuts, custom color, and healthy-hair routines designed around your lifestyle.</p>
+            </div>
+          </div>
+          <p class="location">ByWard Market · Ottawa · Modmop</p>
         </aside>
       </div>
-    </div>
-  </div>
+
+      <div class="sections">
+        <article class="card">
+          <h3>Precision Cuts</h3>
+          <p>Modern shapes with clean structure that grow out softly and stay easy to style at home.</p>
+        </article>
+        <article class="card">
+          <h3>Custom Color</h3>
+          <p>Natural-looking dimension, bright blonding, or full refresh—crafted to complement your tone.</p>
+        </article>
+        <article class="card">
+          <h3>Clean Care Focus</h3>
+          <p>Service flow inspired by Modmop values, with salon-grade products and ingredient-conscious care.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">Fast links only: book, review, and explore Marianna&apos;s newest hair transformations.</p>
+  </main>
 </body>
 </html>
